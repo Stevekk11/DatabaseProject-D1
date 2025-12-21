@@ -60,6 +60,7 @@ public partial class MainWindow : Form
             MessageBox.Show($"Připojení do databáze se nezdařilo... Error: {ex.Message}", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             ErrorField.Text = ex.Message;
+            Console.WriteLine(ex);
         }
     }
 
