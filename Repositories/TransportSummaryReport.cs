@@ -28,8 +28,8 @@ public sealed class TransportSummaryReport
     public double MaxMetroDepth { get; init; }
 
     // Train stations
-    public int MinBoardings { get; init; }
-    public int MaxBoardings { get; init; }
-    public double AvgBoardings { get; init; }
+    public int MinPlatformCount { get; init; }
+    public int MaxPlatformCount { get; init; }
+    public double AvgPlatformCount { get; init; }
 }
 

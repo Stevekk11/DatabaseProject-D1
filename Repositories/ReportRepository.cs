@@ -43,7 +43,7 @@ SELECT
     COALESCE((SELECT MIN(NULLIF(min_hloubka_metra, 0)) FROM dbo.v_linky_s_pokrytim), 0) AS MinMetroDepth,
     COALESCE((SELECT MAX(max_hloubka_metra) FROM dbo.v_linky_s_pokrytim), 0) AS MaxMetroDepth,
 
-    -- train boardings (vlak_stanice)
+    -- platform count (vlak_stanice)
     COALESCE((SELECT MIN(pocet_nast) FROM dbo.vlak_stanice), 0) AS MinBoardings,
     COALESCE((SELECT MAX(pocet_nast) FROM dbo.vlak_stanice), 0) AS MaxBoardings,
     COALESCE((SELECT AVG(CAST(pocet_nast AS float)) FROM dbo.vlak_stanice), 0) AS AvgBoardings;
@@ -76,9 +76,9 @@ SELECT
             MinMetroDepth = reader.GetDouble(reader.GetOrdinal("MinMetroDepth")),
             MaxMetroDepth = reader.GetDouble(reader.GetOrdinal("MaxMetroDepth")),
 
-            MinBoardings = reader.GetInt32(reader.GetOrdinal("MinBoardings")),
-            MaxBoardings = reader.GetInt32(reader.GetOrdinal("MaxBoardings")),
-            AvgBoardings = reader.GetDouble(reader.GetOrdinal("AvgBoardings"))
+            MinPlatformCount = reader.GetInt32(reader.GetOrdinal("MinBoardings")),
+            MaxPlatformCount = reader.GetInt32(reader.GetOrdinal("MaxBoardings")),
+            AvgPlatformCount = reader.GetDouble(reader.GetOrdinal("AvgBoardings"))
         };
     }
 }

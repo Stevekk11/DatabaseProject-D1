@@ -56,13 +56,13 @@ public static class MarkdownReportWriter
         sb.AppendLine($"| Maximální hloubka metra (m) | {r.MaxMetroDepth.ToString("0.##", CultureInfo.InvariantCulture)} |");
         sb.AppendLine();
 
-        sb.AppendLine("## Vlakové stanice – nástupy (min/max/průměr)");
+        sb.AppendLine("## Vlakové stanice – počet nástupišť (min/max/průměr)");
         sb.AppendLine();
         sb.AppendLine("| Metrika | Hodnota |");
         sb.AppendLine("|---|---:|");
-        sb.AppendLine($"| Minimum nástupů | {r.MinBoardings} |");
-        sb.AppendLine($"| Maximum nástupů | {r.MaxBoardings} |");
-        sb.AppendLine($"| Průměr nástupů | {r.AvgBoardings.ToString("0.##", CultureInfo.InvariantCulture)} |");
+        sb.AppendLine($"| Minimum | {r.MinPlatformCount} |");
+        sb.AppendLine($"| Maximum | {r.MaxPlatformCount} |");
+        sb.AppendLine($"| Průměr  | {r.AvgPlatformCount.ToString("0.##", CultureInfo.InvariantCulture)} |");
         sb.AppendLine();
 
         sb.AppendLine("---");
