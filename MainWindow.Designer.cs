@@ -44,8 +44,8 @@ partial class MainWindow
         ExitDB = new System.Windows.Forms.Button();
         ErrorField = new System.Windows.Forms.Label();
         Doprava = new System.Windows.Forms.Button();
-        WinAuth = new System.Windows.Forms.RadioButton();
-        ConnStr = new System.Windows.Forms.RadioButton();
+        WinAuth = new System.Windows.Forms.CheckBox();
+        ConnStr = new System.Windows.Forms.CheckBox();
         label2 = new System.Windows.Forms.Label();
         ConfigName = new System.Windows.Forms.TextBox();
         connAuthGroup = new System.Windows.Forms.GroupBox();
@@ -109,7 +109,6 @@ partial class MainWindow
         // 
         // UsernameField
         // 
-        UsernameField.Enabled = false;
         UsernameField.Location = new System.Drawing.Point(200, 170);
         UsernameField.Name = "UsernameField";
         UsernameField.Size = new System.Drawing.Size(515, 25);
@@ -126,7 +125,6 @@ partial class MainWindow
         // 
         // PasswordField
         // 
-        PasswordField.Enabled = false;
         PasswordField.Location = new System.Drawing.Point(200, 205);
         PasswordField.Name = "PasswordField";
         PasswordField.Size = new System.Drawing.Size(515, 25);
@@ -179,22 +177,20 @@ partial class MainWindow
         // 
         // WinAuth
         // 
-        WinAuth.Checked = true;
         WinAuth.Location = new System.Drawing.Point(15, 145);
         WinAuth.Name = "WinAuth";
         WinAuth.Size = new System.Drawing.Size(700, 30);
         WinAuth.TabIndex = 18;
-        WinAuth.TabStop = true;
         WinAuth.Text = "Ověření Windows (Integrated Security)";
         WinAuth.UseVisualStyleBackColor = true;
         // 
         // ConnStr
         // 
+        ConnStr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
         ConnStr.Location = new System.Drawing.Point(20, 30);
         ConnStr.Name = "ConnStr";
         ConnStr.Size = new System.Drawing.Size(720, 30);
         ConnStr.TabIndex = 19;
-        ConnStr.TabStop = true;
         ConnStr.Text = "Použít název připojovacího řetězce z App.config";
         ConnStr.UseVisualStyleBackColor = true;
         // 
@@ -228,9 +224,9 @@ partial class MainWindow
         connAuthGroup.Controls.Add(PasswordLabel);
         connAuthGroup.Controls.Add(PasswordField);
         connAuthGroup.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        connAuthGroup.Location = new System.Drawing.Point(15, 25);
+        connAuthGroup.Location = new System.Drawing.Point(20, 20);
         connAuthGroup.Name = "connAuthGroup";
-        connAuthGroup.Size = new System.Drawing.Size(730, 210);
+        connAuthGroup.Size = new System.Drawing.Size(730, 234);
         connAuthGroup.TabIndex = 104;
         connAuthGroup.TabStop = false;
         connAuthGroup.Text = "Přihlašovací údaje";
@@ -239,9 +235,9 @@ partial class MainWindow
         // 
         customConnGroup.Controls.Add(connAuthGroup);
         customConnGroup.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        customConnGroup.Location = new System.Drawing.Point(20, 210);
+        customConnGroup.Location = new System.Drawing.Point(20, 194);
         customConnGroup.Name = "customConnGroup";
-        customConnGroup.Size = new System.Drawing.Size(760, 250);
+        customConnGroup.Size = new System.Drawing.Size(760, 266);
         customConnGroup.TabIndex = 103;
         customConnGroup.TabStop = false;
         customConnGroup.Text = "Vlastní připojení k databázi";
@@ -327,8 +323,8 @@ partial class MainWindow
 
     private System.Windows.Forms.Label label2;
 
-    private System.Windows.Forms.RadioButton WinAuth;
-    private System.Windows.Forms.RadioButton ConnStr;
+    private System.Windows.Forms.CheckBox WinAuth;
+    private System.Windows.Forms.CheckBox ConnStr;
 
 
     private System.Windows.Forms.Button Doprava;

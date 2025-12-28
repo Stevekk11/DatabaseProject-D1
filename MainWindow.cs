@@ -1,4 +1,4 @@
-﻿﻿using System.Configuration;
+﻿using System.Configuration;
 using Microsoft.Data.SqlClient;
 
 namespace DatabazeProjekt;
@@ -11,28 +11,28 @@ public partial class MainWindow : Form
     public MainWindow()
     {
         InitializeComponent();
-        WinAuth.CheckedChanged += WinAuth_CheckedChanged;
         ConnStr.CheckedChanged += ConnStr_CheckedChanged;
+        WinAuth.CheckedChanged += ConnStr_CheckedChanged;
     }
-
+    
     /// <summary>
-    /// Kontroluje enabled/disabled stav polí při výběru Windows Auth
+    /// Kontroluje enabled/disabled stav polí při výběru typu připojení (checkboxy).
     /// </summary>
-    private void WinAuth_CheckedChanged(object sender, EventArgs e)
+    private void ConnStr_CheckedChanged(object? sender, EventArgs e)
     {
-        if (WinAuth.Checked)
-        {
-            UsernameField.Enabled = false;
-            PasswordField.Enabled = false;
-            ConfigName.Enabled = false;
-        }
-    }
+        
+        // - ConnStr: použije App.config connection string (uživatel/heslo/server/db se nesmí editovat)
+        // - WinAuth: použije Windows auth (uživatel/heslo se nesmí editovat)
+        // - žádný: SQL auth (uživatel/heslo + server/db)
 
-    /// <summary>
-    /// Kontroluje enabled/disabled stav polí při výběru Config String
-    /// </summary>
-    private void ConnStr_CheckedChanged(object sender, EventArgs e)
-    {
+        // pokud uživatel zapne ConnStr, vypneme WinAuth (jsou vzájemně vylučující)
+        if (sender == ConnStr && ConnStr.Checked)
+            WinAuth.Checked = false;
+
+        // pokud uživatel zapne WinAuth, vypneme ConnStr
+        if (sender == WinAuth && WinAuth.Checked)
+            ConnStr.Checked = false;
+
         if (ConnStr.Checked)
         {
             UsernameField.Enabled = false;
@@ -40,23 +40,25 @@ public partial class MainWindow : Form
             ConfigName.Enabled = true;
             ServerField.Enabled = false;
             DBField.Enabled = false;
+            return;
         }
-        else if (WinAuth.Checked)
+
+        if (WinAuth.Checked)
         {
             UsernameField.Enabled = false;
             PasswordField.Enabled = false;
             ConfigName.Enabled = false;
             ServerField.Enabled = true;
             DBField.Enabled = true;
+            return;
         }
-        else
-        {
-            UsernameField.Enabled = true;
-            PasswordField.Enabled = true;
-            ConfigName.Enabled = false;
-            ServerField.Enabled = true;
-            DBField.Enabled = true;
-        }
+
+        // SQL auth
+        UsernameField.Enabled = true;
+        PasswordField.Enabled = true;
+        ConfigName.Enabled = false;
+        ServerField.Enabled = true;
+        DBField.Enabled = true;
     }
 
     /// <summary>

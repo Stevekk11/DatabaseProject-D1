@@ -138,9 +138,9 @@ partial class Transport
         // 
         Report.BackColor = System.Drawing.Color.FromArgb(((int)((byte)192)), ((int)((byte)255)), ((int)((byte)192)));
         Report.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        Report.Location = new System.Drawing.Point(206, 213);
+        Report.Location = new System.Drawing.Point(732, 370);
         Report.Name = "Report";
-        Report.Size = new System.Drawing.Size(357, 60);
+        Report.Size = new System.Drawing.Size(207, 73);
         Report.TabIndex = 8;
         Report.Text = "Vygenerovat report (.md)...";
         Report.UseVisualStyleBackColor = false;
