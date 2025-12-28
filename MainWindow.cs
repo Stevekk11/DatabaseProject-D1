@@ -182,7 +182,7 @@ public partial class MainWindow : Form
             if (cs == null)
             {
                 ErrorField.Text = "Chyba: Připojovací řetězec 'Doprava' nebyl nalezen v App.config";
-                ErrorField.ForeColor = System.Drawing.Color.DarkRed;
+                ErrorField.ForeColor = Color.DarkRed;
                 MessageBox.Show("Připojovací řetězec 'Doprava' nebyl nalezen v App.config", "Chyba konfigurace", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -191,7 +191,7 @@ public partial class MainWindow : Form
             connection.Open();
 
             ErrorField.Text = "✓ Připojení k databázi Doprava se zdařilo";
-            ErrorField.ForeColor = System.Drawing.Color.DarkGreen;
+            ErrorField.ForeColor = Color.DarkGreen;
 
             Transport doprava = new Transport(connection);
             doprava.Show();
@@ -200,14 +200,14 @@ public partial class MainWindow : Form
         {
             string errorMsg = $"Chyba SQL: {sqlEx.Message}";
             ErrorField.Text = errorMsg;
-            ErrorField.ForeColor = System.Drawing.Color.DarkRed;
+            ErrorField.ForeColor = Color.DarkRed;
             MessageBox.Show(errorMsg, "Chyba připojení", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         catch (Exception exception)
         {
             string errorMsg = $"Chyba: {exception.Message}";
             ErrorField.Text = errorMsg;
-            ErrorField.ForeColor = System.Drawing.Color.DarkRed;
+            ErrorField.ForeColor = Color.DarkRed;
             MessageBox.Show(errorMsg, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
