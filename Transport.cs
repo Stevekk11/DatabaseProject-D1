@@ -191,4 +191,10 @@ public partial class Transport : Form
                 MessageBoxIcon.Error);
         }
     }
+
+    private void EditorBtn_Click(object sender, EventArgs e)
+    {
+        Chooser chooser = new Chooser(_connection);
+        chooser.Show();
+    }
 }

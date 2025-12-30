@@ -95,26 +95,30 @@ create table dbo.vlak_stanice
 )
 go
 
-create view dbo.v_stanice_s_linkami
-as
-select s.id_stanice,
-       s.nazev                                  as nazev_stanice,
+CREATE view dbo.v_stanice_s_linkami as
+SELECT s.id_stanice,
+       s.nazev                                  AS nazev_stanice,
        s.typ_stanice,
-       coalesce(count(distinct sl.linka_id), 0) as pocet_linek,
+       COALESCE(COUNT(DISTINCT sl.linka_id), 0) AS pocet_linek,
+       STRING_AGG(l.cislo_linky, ', ')          AS cisla_linek,
+       STRING_AGG(l.nazev_linky, ', ')          AS nazvy_linek,
        s.ma_lavicku,
        s.ma_kos,
        s.ma_pristresek,
        s.ma_infopanel,
        s.na_znameni,
        s.bezbarierova,
-       (case
-            when s.ma_lavicku = 1 and s.ma_kos = 1 and s.ma_pristresek = 1 and s.ma_infopanel = 1 then 'Plně vybavena'
-            when s.ma_lavicku = 1 and s.ma_kos = 1 and s.ma_pristresek = 1 then 'Standardně vybavena'
-            else 'Částečně vybavena' end)       as uroven_vybaveni
-from dbo.stanice s
-         left join dbo.stanice_linka sl on s.id_stanice = sl.stanice_id
-group by s.id_stanice, s.nazev, s.typ_stanice, s.ma_lavicku, s.ma_kos, s.ma_pristresek, s.ma_infopanel, s.na_znameni,
-         s.bezbarierova
+       (CASE
+            WHEN s.ma_lavicku = 1 AND s.ma_kos = 1 AND s.ma_pristresek = 1 AND s.ma_infopanel = 1
+                THEN 'Plně vybavena'
+            WHEN s.ma_lavicku = 1 AND s.ma_kos = 1 AND s.ma_pristresek = 1 THEN 'Standardně vybavena'
+            ELSE 'Částečně vybavena' END)       AS uroven_vybaveni
+FROM dbo.stanice s
+         LEFT JOIN dbo.stanice_linka sl ON s.id_stanice = sl.stanice_id
+         LEFT JOIN dbo.linky l ON sl.linka_id = l.id_linky
+GROUP BY s.id_stanice, s.nazev, s.typ_stanice, s.ma_lavicku, s.ma_kos, s.ma_pristresek, s.ma_infopanel,
+         s.na_znameni, s.bezbarierova
+go
 
 create view dbo.v_linky_s_pokrytim
 as
@@ -147,10 +151,10 @@ BEGIN
         END
 END;
 
-    CREATE TRIGGER TR_train_station_type
+CREATE TRIGGER TR_train_station_type
         ON dbo.vlak_stanice
         AFTER INSERT, UPDATE AS
-    BEGIN
+BEGIN
         IF EXISTS (SELECT 1
                    FROM inserted i
                             JOIN dbo.stanice s ON s.id_stanice = i.stanice_id

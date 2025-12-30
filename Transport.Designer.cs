@@ -52,6 +52,7 @@ partial class Transport
         SmazVlakJmeno = new System.Windows.Forms.TextBox();
         label1 = new System.Windows.Forms.Label();
         label2 = new System.Windows.Forms.Label();
+        EditorBtn = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // pristresek
@@ -263,11 +264,22 @@ partial class Transport
         label2.TabIndex = 24;
         label2.Text = "číslo";
         // 
+        // button1
+        // 
+        EditorBtn.Location = new System.Drawing.Point(732, 273);
+        EditorBtn.Name = "EditorBtn";
+        EditorBtn.Size = new System.Drawing.Size(206, 68);
+        EditorBtn.TabIndex = 25;
+        EditorBtn.Text = "Editor dat";
+        EditorBtn.UseVisualStyleBackColor = true;
+        EditorBtn.Click += EditorBtn_Click;
+        // 
         // Transport
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(950, 450);
+        Controls.Add(EditorBtn);
         Controls.Add(Report);
         Controls.Add(label2);
         Controls.Add(label1);
@@ -294,6 +306,8 @@ partial class Transport
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Button EditorBtn;
 
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
