@@ -92,7 +92,7 @@ partial class Transport
         // 
         exit.BackColor = System.Drawing.Color.FromArgb(((int)((byte)255)), ((int)((byte)128)), ((int)((byte)128)));
         exit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
-        exit.Location = new System.Drawing.Point(21, 309);
+        exit.Location = new System.Drawing.Point(22, 323);
         exit.Name = "exit";
         exit.Size = new System.Drawing.Size(183, 87);
         exit.TabIndex = 6;
@@ -152,7 +152,7 @@ partial class Transport
         Delimiter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)238));
         Delimiter.Location = new System.Drawing.Point(22, 279);
         Delimiter.Name = "Delimiter";
-        Delimiter.Size = new System.Drawing.Size(164, 24);
+        Delimiter.Size = new System.Drawing.Size(166, 38);
         Delimiter.TabIndex = 11;
         Delimiter.Text = "Delimiter = ;";
         Delimiter.UseVisualStyleBackColor = true;
@@ -217,35 +217,35 @@ partial class Transport
         // 
         SmazStaniciJmeno.Location = new System.Drawing.Point(417, 133);
         SmazStaniciJmeno.Name = "SmazStaniciJmeno";
-        SmazStaniciJmeno.Size = new System.Drawing.Size(166, 26);
+        SmazStaniciJmeno.Size = new System.Drawing.Size(166, 23);
         SmazStaniciJmeno.TabIndex = 18;
         // 
         // SmazLinkuCislo
         // 
         SmazLinkuCislo.Location = new System.Drawing.Point(417, 176);
         SmazLinkuCislo.Name = "SmazLinkuCislo";
-        SmazLinkuCislo.Size = new System.Drawing.Size(166, 26);
+        SmazLinkuCislo.Size = new System.Drawing.Size(166, 23);
         SmazLinkuCislo.TabIndex = 19;
         // 
         // SmazPristJmeno
         // 
         SmazPristJmeno.Location = new System.Drawing.Point(417, 219);
         SmazPristJmeno.Name = "SmazPristJmeno";
-        SmazPristJmeno.Size = new System.Drawing.Size(166, 26);
+        SmazPristJmeno.Size = new System.Drawing.Size(166, 23);
         SmazPristJmeno.TabIndex = 20;
         // 
         // SmazMetroJmeno
         // 
         SmazMetroJmeno.Location = new System.Drawing.Point(417, 262);
         SmazMetroJmeno.Name = "SmazMetroJmeno";
-        SmazMetroJmeno.Size = new System.Drawing.Size(166, 26);
+        SmazMetroJmeno.Size = new System.Drawing.Size(166, 23);
         SmazMetroJmeno.TabIndex = 21;
         // 
         // SmazVlakJmeno
         // 
         SmazVlakJmeno.Location = new System.Drawing.Point(417, 309);
         SmazVlakJmeno.Name = "SmazVlakJmeno";
-        SmazVlakJmeno.Size = new System.Drawing.Size(166, 26);
+        SmazVlakJmeno.Size = new System.Drawing.Size(166, 23);
         SmazVlakJmeno.TabIndex = 22;
         // 
         // label1
@@ -275,7 +275,7 @@ partial class Transport
         // 
         // Transport
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+        AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(950, 450);
         Controls.Add(EditorBtn);

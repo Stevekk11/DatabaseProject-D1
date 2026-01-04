@@ -18,6 +18,7 @@ public partial class Transport : Form
         this._connection = connection;
         this._stationRepository = new StationRepository(connection);
         this._reportRepository = new ReportRepository(connection);
+        EditorBtn.Click += EditorBtn_Click;
     }
 
     /// <summary>
